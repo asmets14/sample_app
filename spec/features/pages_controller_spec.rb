@@ -1,15 +1,10 @@
-require 'spec_helper'
 require 'rails_helper'
 
-RSpec.describe PagesController, type: :controller  do
-  render_views
-
-	describe "GET 'home'" do
-	it " should have the right title" do
-	  visit 'home'
-	  #binding.pry	
-      page.should have_selector("title",
+# Utilises Rspec.feature ... do ... end afin d'avoir accès à Capybara et à l'objet `page`
+RSpec.feature "Static pages", :type => :feature do
+  scenario "Visiting the home page" do
+    visit "/pages/home"
+    expect(page).to have_selector("title",
                         text: " | Accueil", visible: false)
-	end
   end
 end
