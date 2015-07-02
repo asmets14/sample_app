@@ -30,14 +30,17 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+group :development, :test do
+  gem 'pry'
+end
 
 group :development do
   gem 'rspec-rails'
 end
 
 group :test do
-  gem 'rspec'
-  gem 'webrat'
+  gem 'rspec-rails'
+  gem 'capybara'
 end
 
 

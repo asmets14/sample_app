@@ -1,5 +1,5 @@
 require 'rails_helper'
-require 'spec_helper'
+require 'pry'
 
 RSpec.describe PagesController, type: :controller  do
   render_views
@@ -11,9 +11,9 @@ RSpec.describe PagesController, type: :controller  do
       expect(response).to have_http_status(:success)
     end
 	it " should have the right title" do
-	  visit 'home'
-	  #binding.pry	
-      page.should have_selector("title",
+	  get 'home'
+	  binding.pry	
+      response.body.should have_selector("title",
                         text: " | Accueil", visible: false)
 	end
   end
